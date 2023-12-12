@@ -8,7 +8,7 @@ The primary aim of this project is to incorporate the **recommendations** provid
 
 ### RUN LOCALLY
 
-- Download the pre-trained model from [here](https://raw.githubusercontent.com/dipakexe/lungs_disease_detection_models/main/lung_disease_model.h5) and save it to `models/` directory. (Optional) You can also train the model of your own if you want.
+- Download the pre-trained model from [here](https://github.com/dipakexe/lung-disease-detection-models) and save it to `models/` directory. (Optional) You can also train the model of your own if you want.
 - Run the `app.py` flask app.
 
 ### TROUBLESHOOTING
