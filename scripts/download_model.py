@@ -1,5 +1,5 @@
 """
-    This script downloads and saves the model at location 'models/lung_disease_model.h5'.
+    This script downloads and saves the model at location 'models/lung_disease_model.keras'.
 """
 
 import os
@@ -34,14 +34,14 @@ def download_pretrained_model_file_from_github(
 
         if response.status_code == 200:
             # Start the progress bar if file is found
-            print(
-                "\n{'-' * 20}\nModel file is found at specified url. Started downloading.\n{'-' * 20}\n"
+            log_message(
+                "Model file was not found at specified location. Started downloading..."
             )
             total_size = int(response.headers.get("content-length", 0))
             progress_bar = tqdm(total=total_size, unit="B", unit_scale=True)
         elif response.status_code == 404:
             # Exit the program if file is not found
-            print("\n{'-' * 20}\nFile not found at specified url.\n{'-' * 20}\n")
+            log_message("File not found at specified url.")
             return
 
         # Start downloading the file.
@@ -56,9 +56,8 @@ def download_pretrained_model_file_from_github(
         # Close the progress bar after the file is downloaded.
         progress_bar.close()
 
-        print(
-            f"\n{'-' * 20}\nPretrained model file saved to {destination_path}\n{'-' * 20}\n"
-        )
+        log_message(f"Pretrained model file saved to {destination_path}")
+        return destination_path
 
     except Exception as e:
         # In case of connection is not established.
@@ -66,25 +65,22 @@ def download_pretrained_model_file_from_github(
 
 
 model_dir = "models/"
-model_url = "https://raw.githubusercontent.com/dipakexe/lungs_disease_detection_models/main/lung_disease_model.h5"
+output_filename = "lung_disease_model.h5"
+
+model_url = "https://raw.githubusercontent.com/dipakexe/lung-disease-detection-models/main/lung_disease_model.h5"
 
 
 def fetch_model():
-    download_pretrained_model_file_from_github(
-        model_url=model_url,
-        destination_dir=model_dir,
-        output_filename="lung_disease_model.h5",
-    )
-
-
-if __name__ == "__main__":
-    """
-    Create the models/ directory if not exists.
-    """
     if not os.path.exists(model_dir):
         os.makedirs(model_dir)
 
-    """
-    Finally save the model to models/ directory
-    """
-    fetch_model()
+    dest = os.path.join(model_dir, output_filename)
+
+    if not os.path.exists(dest):
+        dest = download_pretrained_model_file_from_github(
+            model_url=model_url,
+            destination_dir=model_dir,
+            output_filename=output_filename,
+        )
+
+    return dest

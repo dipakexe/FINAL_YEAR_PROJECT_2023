@@ -8,7 +8,7 @@ os.environ[
 import numpy as np
 from PIL import Image
 import tensorflow as tf
-import tensorflow.keras as keras
+from tensorflow.keras.models import load_model
 
 
 from flask import Flask, request, render_template, jsonify, send_file
@@ -25,13 +25,20 @@ lung_disease_classifier = None
 def load_model_for_inference():
     global lung_disease_classifier
 
+    # This will make sure if model file is downloaded, Otherwise it will download it.
+    model_path = fetch_model()
+
     if not lung_disease_classifier:
-        model_path = "models/lung_disease_model.h5"
+        log_message("Model is not loaded.. loading model...")
         lung_disease_classifier = tf.keras.models.load_model(model_path)
         log_message("Model Loaded into memory.")
 
     else:
         log_message("Model was already loaded into memory.")
+
+
+# When the app is initialized the model will be loaded in the memory
+load_model_for_inference()
 
 
 def classify_image(image_file):
@@ -104,21 +111,10 @@ def home_page():
     This is the home page.
     """
 
-    # This will make sure if model file is downloaded, Otherwise it will download it.
-    fetch_model()
-
-    # This will load the model into the memory is not loaded.
+    # This will load the model into the memory if not loaded.
     load_model_for_inference()
 
     return render_template("index.html")
-
-
-# @app.get("/leave-feedback")
-# def leave_feedback():
-#     """
-#     In this page users can leave their valueable feedback.
-#     """
-#     return render_template("leave-feedback.html")
 
 
 """

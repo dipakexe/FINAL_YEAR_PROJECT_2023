@@ -38,8 +38,34 @@
 
         <!-- the results will appare here when the image is submitted -->
 
-        <section class="output-section">results</section>
+        <section class="output-section output-section-hidden">
+          <!-- Initially the output section will be hidden -->
+          <div class="pneumonia-probalibity">
+            <div class="pneumonia-probalibity-title">
+              Probability of Pneumonia is
+              <span class="pneumonia-probalibity-level-percentage"></span> %*
+            </div>
+            <div
+              style="
+                border: 0.5px solid black;
+                border-radius: 20px;
+                margin: 1px;
+              "
+            >
+              <div class="pneumonia-probalibity-level-bar"></div>
+            </div>
+          </div>
+          <div class="comment-on-outcome"></div>
+        </section>
       </form>
     </div>
+
+    <footer>
+      <p>&copy; 2023 CHEST X-RAY CLASSIFICATION. All rights reserved.</p>
+      <p>
+        Find us on
+        <a href="https://github.com/blank for now" target="_blank">GitHub</a>
+      </p>
+    </footer>
   </body>
 </html>

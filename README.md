@@ -8,8 +8,7 @@ The primary aim of this project is to incorporate the **recommendations** provid
 
 ### RUN LOCALLY
 
-- Download the pre-trained model from [here](https://github.com/dipakexe/lung-disease-detection-models) and save it to `models/` directory. (Optional) You can also train the model of your own if you want.
-- Run the `app.py` flask app.
+- When you run `npm run start` or simply execute the `python wsgi.py`, It will automatically download the the pre-trained model from [here](https://github.com/dipakexe/lung-disease-detection-models) and save it to`models/` directory. Then It will start the server. (Optionally) You can also train the model of your own if you want.
 
 ### TROUBLESHOOTING
 
