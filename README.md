@@ -1,13 +1,9 @@
 ## FINAL YEAR PROJECT 2023 (RE-CREATION)
-
 - This project is the **reconstruction** of my final year project for the Bachelor of Science in Computer Science.
-- When we're creating the project for the final year project work assessment I didn't thought of Transfer Learning technique for the Model Building process.
-- I continued with the experimentation and found that Transfer Learning would be a great choice and help us to build a more accurate solution according to our problem statement.
-- Building the same model on the top of pre-trained weights saves a lot of time usually consumed when training a model from scratch.
-
-### MOTIVATION AND GOAL
-
-- The primary aim of this project is to incorporate the **recommendations** provided by the esteemed Examiner after the presentation of the original project.
+- During the initial development for the final year project work assessment, Transfer Learning technique was not considered for the Model Building process.
+- Through experimentation, I discovered that Transfer Learning is a great choice, enabling the use of pre-trained weights for DenseNet-121 trained on a vast ImageNet Dataset.
+- I utilized the pre-trained weights of DenseNet-121 trained on ImageNet dataset to speeds up the development process and enhances the accuracy of the solution based on our problem statement.
+- The primary goal is to incorporate the **recommendations** provided by the esteemed Examiner after the presentation of the original final year project.
 
 ### RUN LOCALLY
 
