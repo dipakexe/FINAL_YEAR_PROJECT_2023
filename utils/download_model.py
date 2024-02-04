@@ -1,9 +1,5 @@
 # This script downloads and saves the model at location 'models/lung_disease_model.keras'.
 
-model_dir = "models/"  # Directory to store the pre-trained model.
-output_filename = "lung_disease_model.h5"  # The filename for the model.
-model_url = "https://raw.githubusercontent.com/dipakexe/lung-disease-detection-models/main/lung_disease_model.h5"  # The URL were the model is stored.
-
 import os
 import requests
 from tqdm import tqdm
@@ -14,9 +10,9 @@ def download_pretrained_model_file_from_github(
 ):
     """
     This function takes 3 parameters:
-    - model_url: It is the github url of the model file
-    - destination_dir: The folder to save the model
-    - output_filename: The name to store the model as
+        - model_url: It is the github url of the model file
+        - destination_dir: The folder to save the model
+        - output_filename: The name to store the model as
     """
 
     try:
@@ -34,7 +30,7 @@ def download_pretrained_model_file_from_github(
         response = requests.get(model_url, stream=True)
 
         if response.status_code == 200:
-            # Start the progress bar if file is found
+            # Start the progress bar if file is found in the source repository.
             print(
                 "Model file was not found at specified location. Started downloading..."
             )
@@ -54,7 +50,7 @@ def download_pretrained_model_file_from_github(
                     # Update the progress bar
                     progress_bar.update(len(chunk))
 
-        # Close the progress bar after the file is downloaded.
+        # Stop the progress bar when the file is downloaded.
         progress_bar.close()
 
         print(f"Pretrained model file saved to {destination_path}")

@@ -1,0 +1,17 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+::selection {
+    color: #363636;
+    background-color: #c5c5c5;
+}
+
+
+
+button:active {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}

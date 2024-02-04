@@ -4,68 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CHEST X-RAY CLASSIFICATION</title>
-    <link
-      rel="stylesheet"
-      href="{{  url_for('static', filename='style.css')  }}"
-    />
-    <script src="{{  url_for('static', filename='main.js')  }}" defer></script>
+    <script
+      src="{{  url_for('static', filename='dist/bundle.js')  }}"
+      defer
+    ></script>
   </head>
   <body>
-    <header>
-      <h1>CHEST X-RAY CLASSIFICATION</h1>
-      <p>CLASSIFY NORMAL AND PNEUMONIA AFFECTED CHEST X-RAYS</p>
-    </header>
-    <div id="container">
-      <form action="." enctype="multipart/form-data">
-        <section class="input-section">
-          <div id="image-container">
-            <input
-              type="file"
-              name="input-image-file"
-              id="input-image-file"
-              required
-              hidden
-            />
-            <span id="select-image-label">Click here to select image</span>
-            <img src="" alt="" />
-          </div>
-
-          <div class="buttons-wrapper">
-            <button type="submit">SUBMIT IMAGE</button>
-            <button type="reset">RESET</button>
-          </div>
-        </section>
-
-        <!-- the results will appare here when the image is submitted -->
-
-        <section class="output-section output-section-hidden">
-          <!-- Initially the output section will be hidden -->
-          <div class="pneumonia-probalibity">
-            <div class="pneumonia-probalibity-title">
-              Probability of Pneumonia is
-              <span class="pneumonia-probalibity-level-percentage"></span> %*
-            </div>
-            <div
-              style="
-                border: 0.5px solid black;
-                border-radius: 20px;
-                margin: 1px;
-              "
-            >
-              <div class="pneumonia-probalibity-level-bar"></div>
-            </div>
-          </div>
-          <div class="comment-on-outcome"></div>
-        </section>
-      </form>
-    </div>
-
-    <footer>
-      <p>&copy; 2023 CHEST X-RAY CLASSIFICATION. All rights reserved.</p>
-      <p>
-        Find us on
-        <a href="https://github.com/blank for now" target="_blank">GitHub</a>
-      </p>
-    </footer>
+    <div id="root"></div>
   </body>
 </html>
